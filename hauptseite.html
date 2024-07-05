@@ -8,21 +8,27 @@
     <title>Scooteq GmbH</title>
 </head>
 <body>
-    
-    <select id="Auswahl">
+    <h1>ScooTeq - Preisrechner</h1>
+    <div class="main">
+    <select required id="Auswahl">
         <option value="">Select something</option>
         <option value="1">Berechnung nach Strecke</option>
         <option value="2">Berechnung nach Zeit</option>
     </select>
     <input type="text" id="KM-H" placeholder="Kilometer">
-    <input type="text" id="M-m" placeholder="Meter">
+    <input type="text" id="M-m"  placeholder="Meter">
+    <input type="text" id="rabatt" placeholder="Rabatt Code">
     <button type="button" id="Ausrechnen" value="enter">Rechnen</button>
+    </div>
 
+    <div class="versteckt" id="preiseID">
+     <h2>Dein Preis:</h2>
     <p id="preis"></p>
-    <p id="Summe"></p>
     <p id="Rabatt-name"></p>
     <p id="rabatt-summe"></p>
-    <input type="text" id="rabatt">
+    <p id="Summe"></p>
+    <button type="button" id="neu">Neue Strecke</button>
+    </div>
 
 </body>
 </html>
