@@ -1,73 +1,104 @@
 h1 {
-    font-family: Poppins, sans-serif;
-    font-weight: bold;
+  font-family: Poppins, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.main{
-    display: flex;
-    flex-direction: column;
-    max-width: fit-content;
-    background-color: rgb(71, 71, 71);
-    border-radius: 30px;
-    border-color: black;
-    border-width: 10px;
-    padding: 50px;
-    margin-left: 35px;
-    margin-top: 75px;
+.logo-header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.preise{
-    color: white;
-    display: block;
-    background-color: rgb(71, 71, 71);
-    border-radius: 30px;
-    border-color: black;
-    border-width: 10px;
-    padding: 30px;
-    margin-top: 40px;
+.logo-header-container img {
+  max-width: 250px;
+  height: auto;
 }
 
-.versteckt{
-    display: none;
+.main {
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+  background-color: rgb(71, 71, 71);
+  border-radius: 30px;
+  border-width: 10px;
+  padding: 50px;
+  margin-left: 50px;
+  margin-top: 75px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.8);
+}
+
+.preise {
+  color: white;
+  display: block;
+  background-color: rgb(71, 71, 71);
+  border-radius: 30px;
+  border-color: black;
+  border-width: 10px;
+  padding: 30px;
+  margin-top: 40px;
+  margin-bottom: 200px;
+  margin-left: 25px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.8);
+}
+
+.versteckt {
+  display: none;
 }
 
 body {
-    font-family: Poppins, sans-serif;
-    margin-top: 100px;
-    margin-left: 100px;
-    margin-right: 100px;
-    background-color: rgb(90, 142, 255);
-    background-image: url(./ScooTeq.png);
-    background-size: cover;
-    max-width: fit-content;
-    margin-left:auto;
-    margin-right:auto;
+  font-family: Poppins, sans-serif;
+  margin-top: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+  background-color: black;
+  background-image: url(./ScooTeq.png);
+  background-size: cover;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
-input, select {
-    font-family: Poppins, sans-serif;
-    padding: 5px;
-    border-width: 2px;
-    border-radius: 5px;
-    border-color: black;
-    margin-bottom: 5px;
+
+input,
+select {
+  font-family: Poppins, sans-serif;
+  padding: 5px;
+  border-width: 2px;
+  border-radius: 5px;
+  border-color: black;
+  margin-bottom: 5px;
 }
 
 button {
-    font-family: Poppins, sans-serif;
-    width: 100px;
-    padding: 5px;
-    border-width: 2px;
-    border-radius: 5px;
-    border-color: black;
-    margin-top: 20px;
+  font-family: Poppins, sans-serif;
+  width: 100px;
+  padding: 5px;
+  border-width: 2px;
+  border-radius: 5px;
+  border-color: black;
+  margin-top: 20px;
 }
 
 button:hover {
-    background-color: rgb(204, 200, 200);
-    cursor: pointer;
+  background-color: rgb(204, 200, 200);
+  cursor: pointer;
 }
 
 select:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
+.custom-footer {
+  position: fixed; /* Ensure the footer stays fixed at the bottom */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(71, 71, 71);
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
