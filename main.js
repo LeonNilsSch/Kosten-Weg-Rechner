@@ -5,9 +5,22 @@ document.addEventListener('DOMContentLoaded', function () {
     const button = document.getElementById('Ausrechnen');
     const neustartButton = document.getElementById("neu");
     const einheitauswahl = document.getElementById("Auswahl");
+    
     var gesamtpreisfunktion;
     var multiplikator;
     var preis;
+
+    function preisSetzung(auswahl){
+        if (auswahl == 1) {
+            preis = 0.001;
+            multiplikator = 1000;
+        }
+        else if (auswahl == 2) {
+            preis = 0.50;
+            multiplikator = 60;
+        }
+        return [preis, multiplikator];
+    }
 
     function preisBerechnen(preis, multiplikator, rabatt) {
         var kmH = parseInt(document.getElementById("KM-H").value, 10);
@@ -51,45 +64,40 @@ document.addEventListener('DOMContentLoaded', function () {
     function ErgebnissAnzeigen(gesamtpreis, anfangspreis, rabattpreis) {
         const feldAnfangsPreis = document.getElementById("preis");
         const rabattName = document.getElementById("Rabatt-name");
-        const rabattDiffernez = document.getElementById("rabatt-summe");
+        const rabattDifferenz = document.getElementById("rabatt-summe");
         const endPreis = document.getElementById("Summe");
 
         feldAnfangsPreis.innerHTML = "Anfangspreis: " + anfangspreis + " €";
         rabattName.innerHTML = "Rabattcode: " + document.getElementById("rabatt").value;
-        rabattDiffernez.innerHTML = "Rabattpreis: -" + rabattpreis.toFixed(2) + " €";
+        rabattDifferenz.innerHTML = "Rabattpreis: -" + rabattpreis.toFixed(2) + " €";
         endPreis.innerHTML = "Endpreis: " + gesamtpreis.toFixed(2) + " €";
     }
 
 
 
     button.addEventListener('click', function () {
-        const Aus = document.getElementById("Auswahl").value;
+        const auswahl = document.getElementById("Auswahl").value;
+        console.log(auswahl);
         var rabatt = rabattPrüfen();
         if (rabatt != undefined) {
-
-            if (Aus == 1) {
-                preis = 0.001;
-                multiplikator = 1000;
-            }
-            else if (Aus == 2) {
-                preis = 0.50;
-                multiplikator = 60;
-
-            }
-            else {
-                alert("Bitte wähle eine Berechnungsart aus!!!!!");
+            console.log(auswahl, "baum");
+            if (auswahl == 0){
+                alert("Bitte wähle eine Berechnungsart aus!");
                 return; //beendet das Programm
             }
-            gesamtpreisfunktion = preisBerechnen(preis, multiplikator, rabatt);
-            ErgebnissAnzeigen(gesamtpreisfunktion[0], gesamtpreisfunktion[1], gesamtpreisfunktion[2]);
+
+            else{
+                preisUndMultiplikator = preisSetzung(auswahl);
+                gesamtpreisfunktion = preisBerechnen(preisUndMultiplikator[0], preisUndMultiplikator[1], rabatt);
+                ErgebnissAnzeigen(gesamtpreisfunktion[0], gesamtpreisfunktion[1], gesamtpreisfunktion[2]);
+            }
         }
-        else {
+        else { //bricht das Programm ab, wenn der RabattCode falsch ist
             return;
         }
 
         anzeige.classList.remove('versteckt');
         anzeige.classList.add('preise');
-
 
     });
 
@@ -98,16 +106,22 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    einheitauswahl.addEventListener("click", function () {
-        const Aus = document.getElementById("Auswahl").value;
-        console.log(Aus);
-        if (Aus == 2) {
+    einheitauswahl.addEventListener("click", function() {
+        const aus = document.getElementById("Auswahl").value;
+        const Test = document.getElementById("preisAnzeige")
+        var einheitausgabe;
+        console.log(aus);
+        if (aus == 2) {
             eingabefeld1.placeholder = 'Stunden';
             eingabefeld2.placeholder = 'Minuten';
+            einheitausgabe = "/min.";
         }
         else {
             eingabefeld1.placeholder = 'Kilometer';
             eingabefeld2.placeholder = 'Meter';
+            einheitausgabe = "/meter";
         }
+        preisAnzeige = preisSetzung(aus);
+        Test.innerHTML = "Preis: " + preisAnzeige[0] + "€" + einheitausgabe;
     });
 });

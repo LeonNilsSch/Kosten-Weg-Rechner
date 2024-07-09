@@ -1,3 +1,43 @@
+body {
+  font-family: Poppins, sans-serif;
+  margin-top: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+  background-color: black;
+  background-image: url(./ScooTeq.png);
+  background-size: cover;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input,select {
+  font-family: Poppins, sans-serif;
+  padding: 5px;
+  border-width: 2px;
+  border-radius: 5px;
+  border-color: black;
+  margin-bottom: 5px;
+}
+select:hover {
+  cursor: pointer;
+}
+
+button {
+  font-family: Poppins, sans-serif;
+  width: 100px;
+  padding: 5px;
+  border-width: 2px;
+  border-radius: 5px;
+  border-color: black;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: rgb(204, 200, 200);
+  cursor: pointer;
+}
+
 h1 {
   font-family: Poppins, sans-serif;
   font-weight: bold;
@@ -50,47 +90,6 @@ h1 {
   display: none;
 }
 
-body {
-  font-family: Poppins, sans-serif;
-  margin-top: 100px;
-  margin-left: 100px;
-  margin-right: 100px;
-  background-color: black;
-  background-image: url(./ScooTeq.png);
-  background-size: cover;
-  max-width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-input,
-select {
-  font-family: Poppins, sans-serif;
-  padding: 5px;
-  border-width: 2px;
-  border-radius: 5px;
-  border-color: black;
-  margin-bottom: 5px;
-}
-
-button {
-  font-family: Poppins, sans-serif;
-  width: 100px;
-  padding: 5px;
-  border-width: 2px;
-  border-radius: 5px;
-  border-color: black;
-  margin-top: 20px;
-}
-
-button:hover {
-  background-color: rgb(204, 200, 200);
-  cursor: pointer;
-}
-
-select:hover {
-  cursor: pointer;
-}
 
 .custom-footer {
   position: fixed; /* Ensure the footer stays fixed at the bottom */
