@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const button = document.getElementById('Ausrechnen');
     const neustartButton = document.getElementById("neu");
     const einheitauswahl = document.getElementById("Auswahl");
-    
     var gesamtpreisfunktion;
     var multiplikator;
     var preis;
@@ -25,13 +24,17 @@ document.addEventListener('DOMContentLoaded', function () {
     function preisBerechnen(preis, multiplikator, rabatt) {
         var kmH = parseInt(document.getElementById("KM-H").value, 10);
         var mM = parseInt(document.getElementById("M-m").value, 10);
-        if (Number.isNaN(mM)) {
+        console.log(mM, kmH);
+        if (Number.isNaN(mM) && Number.isNaN(kmH)){
+            alert("Bitte gebe mindestes einen Wert ein!");
+            location.reload();
+        }
+        else if (Number.isNaN(mM)) {
             mM = 0;
         }
         else if (Number.isNaN(kmH)) {
             kmH = 0;
         }
-
         const anfangspreis = (kmH * multiplikator + mM) * preis;
         const rabattpreis = anfangspreis / 100 * rabatt;
         const gesamtpreis = anfangspreis - rabattpreis;
@@ -67,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const rabattDifferenz = document.getElementById("rabatt-summe");
         const endPreis = document.getElementById("Summe");
 
-        feldAnfangsPreis.innerHTML = "Anfangspreis: " + anfangspreis + " €";
+        feldAnfangsPreis.innerHTML = "Anfangspreis: " + anfangspreis.toFixed(2) + " €";
         rabattName.innerHTML = "Rabattcode: " + document.getElementById("rabatt").value;
         rabattDifferenz.innerHTML = "Rabattpreis: -" + rabattpreis.toFixed(2) + " €";
         endPreis.innerHTML = "Endpreis: " + gesamtpreis.toFixed(2) + " €";
@@ -79,8 +82,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const auswahl = document.getElementById("Auswahl").value;
         console.log(auswahl);
         var rabatt = rabattPrüfen();
+
+
         if (rabatt != undefined) {
-            console.log(auswahl, "baum");
             if (auswahl == 0){
                 alert("Bitte wähle eine Berechnungsart aus!");
                 return; //beendet das Programm
@@ -108,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     einheitauswahl.addEventListener("click", function() {
         const aus = document.getElementById("Auswahl").value;
-        const Test = document.getElementById("preisAnzeige")
+        const einzelpreis = document.getElementById("preisAnzeige")
         var einheitausgabe;
         console.log(aus);
         if (aus == 2) {
@@ -122,6 +126,6 @@ document.addEventListener('DOMContentLoaded', function () {
             einheitausgabe = "/meter";
         }
         preisAnzeige = preisSetzung(aus);
-        Test.innerHTML = "Preis: " + preisAnzeige[0] + "€" + einheitausgabe;
+        einzelpreis.innerHTML = "Preis: " + preisAnzeige[0] + "€" + einheitausgabe;
     });
 });
